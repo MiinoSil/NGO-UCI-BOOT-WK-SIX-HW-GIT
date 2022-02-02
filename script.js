@@ -1,6 +1,6 @@
 var APIkey = '5f72767e588cc8f124f76d4337d747d4';
 var currentCityWeather = $('#display-city-weather');
-var formCitySearch = document.getElementById('search-box')
+var formCitySearch = $('#search-box')
 var currentCityName;
 var weather = [];
 var cityList = [];
@@ -84,7 +84,7 @@ function displayWeather(weather) {  //updates the info appends to HTML IDs
 function showCityList(cityList) {  //displays the list of cities chosen in the past
     var listText = "";
     for (var i = 0; i < cityList.length; i++) {
-      listText += `<li class="btn list-group-item list-group-item-action" onclick="getCityWeatherAPI('`+cityList[i]+`')">`+cityList[i]+`</li>`;
+      listText += `<li class="btn list-group-item list-group-item-action" onclick="getCityCoordAPI('`+cityList[i]+`')">`+cityList[i]+`</li>`;
     }
     $(`#cityListGroup`).html(listText);
 }
@@ -113,8 +113,9 @@ function handleSearchSubmit(event) {
       return searchInputVal
     }
     getCityCoordAPI(searchInputVal);
+    clearSearchBox();
 }
 
-formCitySearch.addEventListener('submit', handleSearchSubmit);
+formCitySearch.submit(handleSearchSubmit);
 cityList = loadCityList(cityList);
 getCityCoordAPI('Dallas', 'Seattle', 'Los Angeles', 'Henderson', 'Las Vegas');
