@@ -10,51 +10,81 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 
-<body>
+<body class="bg-secondary">
     <header class="container-fluid navbar navbar-dark bg-primary bg-gradient text-white" id="container-header">
         <h1>Weather Dashboard⛅☀️❄️☔🌫️</h1>
     </header>
     
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-sm-12 g-4">
-                <div class="row card" id="search-box">
+            <div class="col-md-4 col-sm-12 border-dark">
+                <form class="row" id="search-box">
                     <!-- Search input goes here -->
-                    <label for="search-box" class="form-label">Search for a City</label>
-                    <input class="form-control" list="CityDataListOptions" id="CityDataList" placeholder="Type to search...">
-                    <datalist id="CityDataListOptions">
-                        <option value="San Francisco">
-                        <option value="New York">
-                        <option value="Seattle">
-                        <option value="Los Angeles">
-                        <option value="Chicago">
-                      </datalist>
-                </div>
-                <div class="row card" id="search-history">
-                    Search history goes here
-                    <ul class="list-group" id="List-search-history">
+                    <label for="search-box" class="form-label card bg-info bg-gradient text-center card-header">Search for a City</label>
+                    <input type="search" class="text-center" id="search-input" name="cityName" placeholder="Type in a city..."><button id="searchBTN" type="submit">🔎</button>
+                </form>
+                <div class="row" id="search-history">
+                    <h6 class="bg-light card-header">Search History</h6>
+                    <!-- Search history goes here -->
+                    <ul class="list-group" id="cityListGroup">
 
                     </ul>
                 </div>
             </div>
 
-            <div class="col-md-8 col-sm-12 g-4">
-                <div class="container-fluid row card" id="display-jumbotron-weather">
-                    Jumbotron
+            <div class="container-fluid border-dark col-md-8 col-sm-12">
+                <div class="card row">
+                    <!-- Jumbotron -->
+                    <h5 class="bg-light card-header">Current City Weather</h5>
+                    <h6><span id="currentCityName"></span></h6>
+                    <h6><span id="day0-date"></span><span id="day0-time"></span></h6>
+                    <div class="card-body" id="day0">
+                        <p class="card-text">Weather Description: <span id="day0-weather"></span><img id="day0-icon" src=""></p>
+                        <p class="card-text">Temperature: <span id="day0-temp"></span></p>
+                        <p class="card-text">Humidity: <span id="day0-humid"></span></p>
+                        <p class="card-text">Wind Speed: <span id="day0-WSpd"></span></p>
+                        <p class="card-text">UV Index: <span id="day0-UVIndex"></span></p>
+                    </div>
                 </div>
-                <div class="row" id="5-day-forecast">
-                    <div class="col-md-2 col-sm-12 card g-2">1</div>
-                    <div class="col-md-2 col-sm-12 card g-2">2</div>
-                    <div class="col-md-2 col-sm-12 card g-2">3</div>
-                    <div class="col-md-2 col-sm-12 card g-2">4</div>
-                    <div class="col-md-2 col-sm-12 card g-2">5</div>
+                <div class="row border-dark" id="5-day-forecast">
+                    <h6 class="bg-light card-header">5 Day Forecast</h6>
+                    <div class="card col-md-2 g-col-sm-12 card p-2 h-100" id="Day1">
+                        <p class="card-text"><span id="day1-date"></span><img id="day1-icon" src=""></p>
+                        <p class="card-text">Temp: <span id="day1-temp"></span></p>
+                        <p class="card-text">Humidity: <span id="day1-humid"></span></p>
+                        <p class="card-text">Wind Speed: <span id="day1-WSpd"></span></p>
+                    </div>
+                    <div class="card col-md-2 g-col-sm-12 card p-2 h-100" id="Day2">
+                        <p class="card-text"><span id="day2-date"></span><img id="day2-icon" src=""></p>
+                        <p class="card-text">Temp: <span id="day2-temp"></span></p>
+                        <p class="card-text">Humidity: <span id="day2-humid"></span></p>
+                        <p class="card-text">Wind Speed: <span id="day2-WSpd"></span></p>
+                    </div>
+                    <div class="card col-md-2 g-col-sm-12 card p-2 h-100" id="Day3">
+                        <p class="card-text"><span id="day3-date"></span><img id="day3-icon" src=""></p>
+                        <p class="card-text">Temp: <span id="day3-temp"></span></p>
+                        <p class="card-text">Humidity: <span id="day3-humid"></span></p>
+                        <p class="card-text">Wind Speed: <span id="day3-WSpd"></span></p>
+                    </div>
+                    <div class="card col-md-2 g-col-sm-12 card p-2 h-100" id="Day4">
+                        <p class="card-text"><span id="day4-date"></span><img id="day4-icon" src=""></p>
+                        <p class="card-text">Temp: <span id="day4-temp"></span></p>
+                        <p class="card-text">Humidity: <span id="day4-humid"></span></p>
+                        <p class="card-text">Wind Speed: <span id="day4-WSpd"></span></p>
+                    </div>
+                    <div class="card col-md-2 g-col-sm-12 card p-2 h-100" id="Day5">
+                        <p class="card-text"><span id="day5-date"></span><img id="day5-icon" src=""></p>
+                        <p class="card-text">Temp: <span id="day5-temp"></span></p>
+                        <p class="card-text">Humidity: <span id="day5-humid"></span></p>
+                        <p class="card-text">Wind Speed: <span id="day5-WSpd"></span></p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <footer class="container-fluid bg-primary bg-gradient text-white" id="footer">
-        <h5>©️ 2022, made with 🤍 by Andrew</h5>
+        <h5 class="text-center">©️ 2022, made with 🤍 by Andrew</h5>
     </footer>
 </body>
 
