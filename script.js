@@ -113,7 +113,6 @@ function handleSearchSubmit(event) {
       return searchInputVal
     }
     getCityCoordAPI(searchInputVal);
-    clearSearchBox();
 }
 
 formCitySearch.submit(handleSearchSubmit);
